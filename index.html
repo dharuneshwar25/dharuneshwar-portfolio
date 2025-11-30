@@ -269,6 +269,85 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
+    /* Status badges */
+    .status-badge {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+    
+    .status-ongoing {
+      background: #fef3c7;
+      color: #92400e;
+    }
+    
+    .status-completed {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    /* Internship timeline */
+    .timeline-item {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.5rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+    
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 1.5rem;
+      bottom: -2rem;
+      width: 2px;
+      background: #e2e8f0;
+    }
+    
+    .timeline-item:last-child::after {
+      display: none;
+    }
+
+    /* Project details */
+    .project-detail {
+      margin-bottom: 1.5rem;
+    }
+    
+    .project-detail h6 {
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    
+    /* Contact section - remove underline */
+    #contact a {
+      text-decoration: none !important;
+    }
+    
+    /* Hide project details by default */
+    .project-full-details,
+    .internship-full-details {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -288,6 +367,7 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#internships">Internships</a></li>
           <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
@@ -353,59 +433,120 @@
 
     <!-- PROJECTS -->
     <section id="projects" class="mb-5">
-      <div class="d-flex justify-content-between align-items-center mb-3">
+      <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>Projects</h2>
-        <small class="text-muted">Click a card to open the project report</small>
+        <small class="text-muted">Click "View Full Report" to see project details</small>
       </div>
 
       <div class="row g-4">
-        <!-- Project card -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card card-ghost h-100 p-3 d-flex flex-column">
-            <div class="mb-2">
-              <span class="skill-badge">Android</span>
-              <span class="skill-badge">Firebase</span>
+        <!-- Smart Solar Panel Monitoring Drone -->
+        <div class="col-md-6">
+          <div class="card card-ghost h-100 p-4">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <div>
+                <span class="skill-badge">Node.js</span>
+                <span class="skill-badge">Python</span>
+                <span class="skill-badge">React</span>
+                <span class="skill-badge">MySQL</span>
+                <span class="skill-badge">GeoTIFF</span>
+              </div>
+              <span class="status-badge status-ongoing">Ongoing</span>
             </div>
-            <h5 class="mb-1">Smart ICU Patient Monitoring System</h5>
-            <p class="text-muted small mb-3">Android app with Firebase realtime vitals & alerting.</p>
-
-            <div class="mt-auto d-flex gap-2">
-              <button class="btn btn-outline-primary btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="Smart ICU Patient Monitoring System" data-summary="Android app with Firebase realtime monitoring. Paste your full report here later." data-github="https://github.com/YOUR-USERNAME/smart-icu">Open Report</button>
-              <a class="btn btn-dark btn-sm" href="https://github.com/YOUR-USERNAME/smart-icu" target="_blank" rel="noopener">GitHub</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project card 2 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card card-ghost h-100 p-3 d-flex flex-column">
-            <div class="mb-2">
-              <span class="skill-badge">Node.js</span>
-              <span class="skill-badge">Telemetry</span>
-            </div>
-            <h5 class="mb-1">Smart Solar Panel Monitoring Drone</h5>
-            <p class="text-muted small mb-3">Drone telemetry & dashboard backend.</p>
-
-            <div class="mt-auto d-flex gap-2">
-              <button class="btn btn-outline-primary btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="Smart Solar Panel Monitoring Drone" data-summary="Backend + telemetry for monitoring solar panels using drone-collected data." data-github="https://github.com/YOUR-USERNAME/solar-drone">Open Report</button>
+            
+            <h4 class="mb-3">Smart Solar Panel Monitoring Drone</h4>
+            <p class="text-muted mb-3">Drone-based solar panel monitoring system with geospatial processing capabilities</p>
+            
+            <div class="mt-3 d-flex gap-2">
+              <button class="btn btn-outline-primary btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#projectModal1">
+                View Full Report
+              </button>
               <a class="btn btn-dark btn-sm" href="https://github.com/YOUR-USERNAME/solar-drone" target="_blank" rel="noopener">GitHub</a>
             </div>
           </div>
         </div>
 
-        <!-- Add more projects by copying the block above and changing data- attributes -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card card-ghost h-100 p-3 d-flex flex-column">
-            <div class="mb-2">
-              <span class="skill-badge">MAUI</span>
-              <span class="skill-badge">ONNX</span>
+        <!-- ICU Vital Monitoring System -->
+        <div class="col-md-6">
+          <div class="card card-ghost h-100 p-4">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <div>
+                <span class="skill-badge">Android</span>
+                <span class="skill-badge">Firebase</span>
+                <span class="skill-badge">ESP32</span>
+                <span class="skill-badge">IoT</span>
+              </div>
+              <span class="status-badge status-completed">Completed</span>
             </div>
-            <h5 class="mb-1">MAUI Image Classifier (Prototype)</h5>
-            <p class="text-muted small mb-3">ONNX model based image classification on cross-platform app.</p>
+            
+            <h4 class="mb-3">ICU Vital Monitoring System</h4>
+            <p class="text-muted mb-3">Android-based real-time patient monitoring system with Firebase integration</p>
+            
+            <div class="mt-3 d-flex gap-2">
+              <button class="btn btn-outline-primary btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#projectModal2">
+                View Full Report
+              </button>
+              <a class="btn btn-dark btn-sm" href="https://github.com/YOUR-USERNAME/smart-icu" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <div class="mt-auto d-flex gap-2">
-              <button class="btn btn-outline-primary btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="MAUI Image Classifier (Prototype)" data-summary="A .NET MAUI app that loads an ONNX model for offline image classification. Replace this with your full report." data-github="https://github.com/YOUR-USERNAME/maui-image-classifier">Open Report</button>
-              <a class="btn btn-dark btn-sm" href="https://github.com/YOUR-USERNAME/maui-image-classifier" target="_blank" rel="noopener">GitHub</a>
+    <!-- INTERNSHIPS -->
+    <section id="internships" class="mb-5">
+      <h2 class="mb-4">Internships</h2>
+
+      <div class="row">
+        <div class="col-lg-6 mb-4">
+          <div class="card card-ghost h-100 p-4">
+            <div class="timeline-item">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h5 class="mb-1">Mobile Application Developer Intern</h5>
+                <span class="badge bg-primary">June 27 – July 26, 2025</span>
+              </div>
+              <h6 class="text-muted mb-3">Aquila Innovations</h6>
+              
+              <div class="mb-3">
+                <span class="skill-badge">.NET MAUI</span>
+                <span class="skill-badge">C#</span>
+              </div>
+              
+              <p class="small mb-3">Developed the cross-platform mobile application GREET using .NET MAUI. The app allows tourists to scan monuments to instantly retrieve detailed information.</p>
+              
+              <div class="mt-3">
+                <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#internshipModal1">
+                  View Details
+                </button>
+                <a class="btn btn-dark btn-sm ms-2" href="https://github.com/YOUR-USERNAME/greet-app" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6 mb-4">
+          <div class="card card-ghost h-100 p-4">
+            <div class="timeline-item">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h5 class="mb-1">Software Development Intern</h5>
+                <span class="badge bg-primary">May 17 – June 14, 2024</span>
+              </div>
+              <h6 class="text-muted mb-3">VcodeWonders</h6>
+              
+              <div class="mb-3">
+                <span class="skill-badge">MongoDB</span>
+                <span class="skill-badge">Express.js</span>
+                <span class="skill-badge">React</span>
+                <span class="skill-badge">Node.js</span>
+                <span class="skill-badge">REST APIs</span>
+              </div>
+              
+              <p class="small mb-3">Rapidly learned and applied the MERN stack to build a functional e-commerce application from scratch.</p>
+              
+              <div class="mt-3">
+                <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#internshipModal2">
+                  View Details
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -460,37 +601,207 @@
     </div>
   </footer>
 
-  <!-- PROJECT MODAL (single modal used for all projects) -->
-  <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
+  <!-- PROJECT MODALS -->
+  <!-- Project 1 Modal -->
+  <div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="projectModalLabel">Project title</h5>
+          <h5 class="modal-title">Smart Solar Panel Monitoring Drone</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p class="text-muted" id="projectSummary"></p>
-          <hr>
-          <div class="project-body" id="projectBody">
-            <!-- Placeholder: replace with full report content later -->
-            <p><em>Replace this placeholder with the full project report: description, architecture diagram, screenshots, how to run, demo links, and lessons learned.</em></p>
-
-            <h6>How to structure the report</h6>
-            <ol>
-              <li>Project Overview (objective, core idea)</li>
-              <li>Tech stack (languages, frameworks, cloud)</li>
-              <li>Architecture (diagram + explanation)</li>
-              <li>Run locally / Deploy (commands, env variables)</li>
-              <li>Repo & Demo links</li>
-              <li>Screenshots / Media</li>
-              <li>Future work</li>
-            </ol>
-
-            <p class="small text-muted">Tip: keep a Markdown README in the project's GitHub repo — link to it using the "Open on GitHub" button.</p>
+          <div class="project-detail">
+            <h6>Executive Summary</h6>
+            <p>Development has successfully established a robust Geo-spatial Processing Pipeline and a secure Drone Management System with OTP verification. The multi-tier architecture now supports reliable GeoTIFF management, accurate coordinate extraction via Python services, and comprehensive CRUD operations, laying the groundwork for upcoming visual map integrations.</p>
+          </div>
+          
+          <div class="project-detail">
+            <h6>Technical Architecture and Stack</h6>
+            <p>The application utilizes a high-performance, modular stack. The Frontend uses the MERN stack (React.js) with tools like Styled-Components and jsPDF for interactive reporting. The Backend relies on Node.js/Express and Sequelize for API routing and persistence, while a specialized Geo-Processor built on Python (FastAPI) handles complex calculations using libraries such as Rasterio, Pyproj, and Shapely. Data is securely managed in a MySQL database.</p>
+          </div>
+          
+          <div class="project-detail">
+            <h6>Completed Deliverables</h6>
+            <ul>
+              <li>Core features implemented include Drone Data Management, providing full backend and frontend capabilities for creating and deleting records with automatic file system cleanup.</li>
+              <li>The Geo-Spatial Pipeline is fully established, linking the Node.js API to the Python processor to convert pixel coordinates to WGS84 Latitude/Longitude and generate GeoJSON buffers.</li>
+              <li>Additionally, Multi-Factor Authentication for password resets and System Status Modules (battery, connectivity, flight readiness) are fully functional.</li>
+            </ul>
+          </div>
+          
+          <div class="project-detail">
+            <h6>Remaining Scope and Future Integration</h6>
+            <p>The final phase focuses on visualization and external data. A critical pending feature is the TIF-to-JPEG conversion service to enable browser display of GeoTIFFs, followed by Virtual Map Integration (e.g., Leaflet) to render boundaries and data points. Remaining tasks also include integrating the Weatherstack API for real-time weather data and developing a visual interface to display Solar Panel Health statuses.</p>
           </div>
         </div>
         <div class="modal-footer">
-          <a id="projectGithubBtn" class="btn btn-dark" href="#" target="_blank" rel="noopener">Open on GitHub</a>
+          <a class="btn btn-dark" href="https://github.com/YOUR-USERNAME/solar-drone" target="_blank" rel="noopener">Open on GitHub</a>
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 2 Modal -->
+  <div class="modal fade" id="projectModal2" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">ICU Vital Monitoring System</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="project-detail">
+            <h6>Executive Summary</h6>
+            <p>Development has successfully concluded on the Android-based client for the ICU Vital Monitoring System. The application establishes a low-latency connection using Firebase to visualize critical patient health data in real-time. Key achievements include the successful implementation of unique device pairing logic and a high-priority alert system that notifies medical staff immediately when vitals deviate from normal physiological ranges.</p>
+          </div>
+          
+          <div class="project-detail">
+            <h6>Technical Architecture and Stack</h6>
+            <p>The solution is built on a native Android architecture designed for reliability and speed in medical settings.</p>
+            <ul>
+              <li><strong>Mobile Environment:</strong> Developed using Android Studio, ensuring full access to native device notification and audio APIs.</li>
+              <li><strong>Real-Time Engine:</strong> Utilizes Firebase Realtime Database as the bridge between the hardware and the app. This ensures that data pushed by the ESP32 sensors (via Wi-Fi) is instantly reflected on the doctor's screen without manual refreshing.</li>
+              <li><strong>Data Structure:</strong> The architecture relies on Unique Device IDs to segregate and securely track data streams for individual patients.</li>
+            </ul>
+          </div>
+          
+          <div class="project-detail">
+            <h6>Completed Deliverables</h6>
+            <ul>
+              <li><strong>Real-Time Vitals Dashboard:</strong> The application successfully renders live data streams for Blood Oxygen (SpO2), ECG (Electrocardiogram), Body Temperature, and Heart Rate.</li>
+              <li><strong>Automated Alert Logic:</strong> A critical safety feature is fully operational. The app continuously monitors incoming data against pre-defined medical thresholds. If a value drops below or exceeds the normal range, the system triggers an immediate audio-visual alarm to alert the attending doctor.</li>
+              <li><strong>IoT Device Linking:</strong> The software interface for the ESP32 hardware is complete. The app creates a dedicated listener for specific Device IDs to ensure accurate patient-to-device mapping.</li>
+            </ul>
+          </div>
+          
+          <div class="project-detail">
+            <h6>Scope and Integration Boundaries</h6>
+            <ul>
+              <li><strong>Software-Hardware Interface:</strong> This project scope focused exclusively on the mobile application development.</li>
+              <li><strong>Integration Readiness:</strong> While the hardware (ESP32/Sensors) was developed separately, the application's communication protocols are fully established and tested to receive and parse JSON data payloads sent from the hardware units via the cloud.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-dark" href="https://github.com/YOUR-USERNAME/smart-icu" target="_blank" rel="noopener">Open on GitHub</a>
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERNSHIP MODALS -->
+  <!-- Internship 1 Modal -->
+  <div class="modal fade" id="internshipModal1" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Mobile Application Developer Intern - Aquila Innovations</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="project-detail">
+            <h6>Project: GREET Tourism App</h6>
+            <p>Over a 4-week period, I developed the cross-platform mobile application GREET using .NET MAUI. The app allows tourists to scan monuments to instantly retrieve detailed information, demonstrating skill in native feature integration and cross-platform application development.</p>
+          </div>
+          
+          <div class="project-detail">
+            <h6>Executive Summary</h6>
+            <p>Development efforts have centered on the "History" module, a core component of the broader GREET tourism ecosystem. Built using .NET MAUI, this cross-platform module enhances the tourist experience by enabling real-time monument scanning and information retrieval. Simultaneously, a dedicated Admin side has been deployed to manage rich media content, specifically 360° video tours, ensuring immersive storytelling for users.</p>
+          </div>
+          
+          <div class="project-detail">
+            <h6>Technical Architecture and Stack</h6>
+            <p>The module leverages .NET MAUI to ensure a unified code base for both Android and iOS platforms. Key technical components include:</p>
+            <ul>
+              <li><strong>Mobile Client:</strong> .NET MAUI app enabling real-time monument scanning through the device camera.</li>
+              <li><strong>Video Processing Engine:</strong> Admin uploads a 360° monument video, from which the system extracts all frames and generates RGB-based image fingerprints.</li>
+              <li><strong>Recognition Pipeline:</strong> Client-captured images are uploaded and matched against the fingerprint database to accurately identify the monument.</li>
+              <li><strong>Integration:</strong> Architected as a plug-and-play module that integrates smoothly with the existing GREET super-app ecosystem.</li>
+            </ul>
+          </div>
+          
+          <div class="project-detail">
+            <h6>Completed Deliverables</h6>
+            <ul>
+              <li><strong>Tourist Interface (Scanner):</strong> The "Scan-to-Learn" feature is fully functional. Tourists can point their device at a popular monument to instantly trigger the retrieval of historical data, facts, and significance.</li>
+              <li><strong>Admin Content Management:</strong> A robust admin interface is operational, allowing administrators to upload and manage monument details.</li>
+              <li><strong>360° Video Integration:</strong> The video player module has been successfully implemented, enabling admins to post immersive 360° footage of locations, which is then rendered correctly on the user's device.</li>
+            </ul>
+          </div>
+          
+          <div class="project-detail">
+            <h6>Integration with GREET Ecosystem</h6>
+            <p>While the "History" module is functional as a standalone feature, the next phase focuses on deep integration with the wider GREET application features:</p>
+            <ul>
+              <li><strong>Tour Planning Connection:</strong> Linking scanned monuments to the Tour Planning module to suggest nearby sites automatically.</li>
+              <li><strong>Booking Integration:</strong> Connecting historical sites with the Hotel Booking and Offline Payment systems to facilitate ticket purchases or stays near the scanned monument.</li>
+            </ul>
+          </div>
+          
+          <div class="project-detail">
+            <h6>Skills Learned</h6>
+            <p>.NET MAUI framework, cross-platform development, camera integration, 360° media rendering, modular application architecture.</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-dark" href="https://github.com/YOUR-USERNAME/greet-app" target="_blank" rel="noopener">Open on GitHub</a>
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Internship 2 Modal -->
+  <div class="modal fade" id="internshipModal2" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Software Development Intern - VcodeWonders</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="project-detail">
+            <h6>Project: E-Commerce Application</h6>
+            <p>During my 4-week internship at VcodeWonders (May 17, 2024 – June 14, 2024), I quickly learned the MERN stack (MongoDB, Express, React, Node.js) and successfully applied these skills to build a simple e-commerce application.</p>
+          </div>
+          
+          <div class="project-detail">
+            <h6>Summary</h6>
+            <p>I developed a complete e-commerce application from scratch using the MERN stack, which included creating RESTful APIs with Node.js and Express to handle all data management operations. This project provided comprehensive hands-on experience in full-stack development and modern web technologies.</p>
+          </div>
+          
+          <div class="project-detail">
+            <h6>Key Accomplishments</h6>
+            <ul>
+              <li>Mastered the complete MERN stack within a 4-week intensive learning period</li>
+              <li>Designed and implemented a complete RESTful API architecture for product management, user authentication, and shopping cart functionality</li>
+              <li>Built a responsive React frontend with modern UI components and state management</li>
+              <li>Implemented user authentication system with secure password handling</li>
+              <li>Created database schemas and models using MongoDB with Mongoose ODM</li>
+              <li>Developed product catalog with search and filtering capabilities</li>
+              <li>Implemented shopping cart functionality with persistent storage</li>
+            </ul>
+          </div>
+          
+          <div class="project-detail">
+            <h6>Technical Implementation</h6>
+            <ul>
+              <li><strong>Frontend:</strong> React.js with functional components and hooks, React Router for navigation, Context API for state management</li>
+              <li><strong>Backend:</strong> Node.js with Express.js framework, RESTful API design, JWT authentication</li>
+              <li><strong>Database:</strong> MongoDB with Mongoose ODM for data modeling and validation</li>
+              <li><strong>Additional Technologies:</strong> Axios for API calls, BCrypt for password hashing, CORS handling</li>
+            </ul>
+          </div>
+          
+          <div class="project-detail">
+            <h6>Skills Gained</h6>
+            <p>Full MERN stack proficiency, REST API development, database design with MongoDB, frontend-backend integration, user authentication systems, responsive web design, version control with Git, and agile development practices.</p>
+          </div>
+        </div>
+        <div class="modal-footer">
           <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
@@ -503,22 +814,6 @@
   <script>
     // set footer year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Handle modal content population from button data attributes
-    const projectModal = document.getElementById('projectModal');
-    projectModal.addEventListener('show.bs.modal', function (event) {
-      const button = event.relatedTarget;
-      const title = button.getAttribute('data-title') || 'Project';
-      const summary = button.getAttribute('data-summary') || '';
-      const github = button.getAttribute('data-github') || '#';
-
-      document.getElementById('projectModalLabel').textContent = title;
-      document.getElementById('projectSummary').textContent = summary;
-      document.getElementById('projectGithubBtn').href = github;
-
-      // If you want to programmatically fetch README or HTML from GitHub in future,
-      // you could add code here to fetch and display it (CORS and raw URLs apply).
-    });
 
     // If profile image fails to load, use a generated placeholder
     const img = document.getElementById('profileImage');
